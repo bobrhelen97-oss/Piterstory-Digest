@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дайджест недели | Piterstory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #0a0a0a;
+            --gold: #c9a55a;
+            --gold-light: #d4b06a;
+            --white: #ffffff;
+            --gray: #8a8a8a;
+            --gray-light: #e8e8e8;
+        }
+
+        body {
+            background: var(--bg-black);
+            color: var(--white);
+            font-family: 'Montserrat', -apple-system, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo .piterstory {
+            color: var(--white);
+        }
+
+        .logo .team {
+            color: var(--gold);
+        }
+
+        .divider-top {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto 30px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .intro strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .news-item {
+            margin-bottom: 80px;
+            padding: 40px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(201, 165, 90, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold), var(--gold-light));
+            transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .news-item:hover::before {
+            height: 100%;
+        }
+
+        .news-item:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+            box-shadow: -10px 10px 40px rgba(201, 165, 90, 0.15);
+        }
+
+        .news-item p {
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            color: var(--gray-light);
+            line-height: 1.8;
+        }
+
+        .news-item p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .meme-container {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .meme-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid rgba(201, 165, 90, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .meme-container img:hover {
+            border-color: var(--gold);
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(201, 165, 90, 0.3);
+        }
+
+        .emoji-accent {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 80px 0;
+            opacity: 0.3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(201, 165, 90, 0.2);
+            margin-top: 80px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: var(--gold);
+        }
+
+        footer p {
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .news-item:nth-child(1) { animation-delay: 0.1s; }
+        .news-item:nth-child(2) { animation-delay: 0.15s; }
+        .news-item:nth-child(3) { animation-delay: 0.2s; }
+        .news-item:nth-child(4) { animation-delay: 0.25s; }
+        .news-item:nth-child(5) { animation-delay: 0.3s; }
+        .news-item:nth-child(6) { animation-delay: 0.35s; }
+        .news-item:nth-child(7) { animation-delay: 0.4s; }
+        .news-item:nth-child(8) { animation-delay: 0.45s; }
+        .news-item:nth-child(9) { animation-delay: 0.5s; }
+        .news-item:nth-child(10) { animation-delay: 0.55s; }
+        .news-item:nth-child(11) { animation-delay: 0.6s; }
+        .news-item:nth-child(12) { animation-delay: 0.65s; }
+        .news-item:nth-child(13) { animation-delay: 0.7s; }
+        .news-item:nth-child(14) { animation-delay: 0.75s; }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 50px 25px;
+            }
+            .news-item {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="piterstory">PITERSTORY.</span><span class="team">TEAM</span>
+            </div>
+            <div class="divider-top"></div>
+            <p class="intro">Три недели без простого человеческого дайджеста довели нас до мысли — <strong>пора возобновлять традицию</strong>. Новостей много, амбиций еще больше.<br>Погнали!</p>
+        </header>
+
+        <div class="news-item">
+            <p>Наш любимый клиент <span class="highlight">АО «Коломяжское»</span> решил приодеть рабочих к лету и заказал 150 классных брендированных кепок. Альбина быстренько подняла связи, выбила нам крупную скидку в «Проекте 111» — и теперь мы получаем с мерча выручку х2.</p>
+            <p><strong>Альбина — красотка!</strong></p>
+            <div class="meme-container">
+                <img src="meme1.jpg" alt="Кепка брендированная">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>На этой неделе подали <span class="highlight">шесть заявок по тендерам</span>. Отдел продаж мечтает забрать все шесть и предлагает провести ближайший год работы под слоганом <strong>«Кто сдох — тот лох»</strong>. Что тут скажешь... Умеем, делаем <span class="emoji-accent">👌</span></p>
+            <div class="meme-container">
+                <img src="meme2.jpg" alt="Моё лицо когда выиграл тендер">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>На прошлой неделе выиграли тендер <span class="highlight">«Каравана»</span>. Теперь ждем от них подписанный NDA, чтобы подписать договор, внести финальные правки и получить свои денежки.</p>
+        </div>
+
+        <div class="news-item">
+            <p>Семен на этой неделе проявил <span class="highlight">новый навык!</span> А именно — собрал две тумбочки для Алевтины и Оксаны. Ещё ннада?</p>
+            <div class="meme-container">
+                <img src="meme3.jpg" alt="Сантехник слесарь сварщик">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>По проектам Вани: сделал <span class="highlight">клевый дизайн для тендера «Ленты»</span> (держим кулачки), продолжает работу над сайтом для паллетов, над лендингом SMM для Питерстори и над нашим фирменным стилем. Предлагает собраться на следующей неделе, чтобы подробно обсудить фирменный стиль — задачка на пять звездочек.</p>
+            <div class="meme-container">
+                <img src="meme4.jpg" alt="Лучший дизайнер">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Алевтина укротила нашего разработчика Влада и добилась, наконец, <span class="highlight">хорошего результата по разработке сайта La Vue</span>. Есть еще мелкие недочеты, но в целом сайт выглядит отлично. Сегодня показываем клиенту!</p>
+        </div>
+
+        <div class="news-item">
+            <p>Еще победы Алевтины: написала напрямую в «Додо» — и <strong>они ответили!</strong> Со своей личной странички во «ВКонтакте» написала директору Водоканала (ждём, когда он появится в сети). Пишет всем подряд с личного аккаунта на hh.ru и предлагает услуги. <strong>«Что-нибудь да выстрелит»</strong> — логично предполагает Алевтина. Аля, жги!</p>
+            <div class="meme-container">
+                <img src="meme5.gif" alt="Быстрая печать">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Нашли лайфхак, как поесть за <span class="highlight">265 рублей</span>. В «Евразии» по понедельникам женским компаниям скидка 50%. Как тебе такое, «Всем еда»?</p>
+            <div class="meme-container">
+                <img src="meme6.jpg" alt="Экономист">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>На этой неделе, наконец, дозагрузили все доки для <span class="highlight">Silver Mercury</span>. Пожалуйста, возьмите нас в лонг <span class="emoji-accent">🙏🙏🙏</span></p>
+        </div>
+
+        <div class="news-item">
+            <p>У Лены тоже есть победы. Начала подниматься на седьмой этаж без отдышки. <strong>Считайте это заявочкой на марафон.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Лена с Лизой <span class="highlight">научили Клода рисовать в Фигме и делать модную инфографику</span>. И вообще Клод значительно поумнел благодаря вложенным в него знаниям наших крутых коллег. Девочки, наше почтение.</p>
+            <div class="meme-container">
+                <img src="meme7.jpg" alt="AI мем">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Еще Илья, Лена и Лиза придумали <span class="highlight">схему быстрой подготовки КП</span>. Если по-простому: Илья вместе со своим оркестром собирает мясо, потом девчонки его хорошенько отбивают, маринуют, добавляют соль, перец и доводят до полной готовности, чтобы клиент в итоге сказал: <strong>«Мммм, вот это вкусно!»</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Илья съездил на выставку, круто провел время в Москве и привез много крутых инсайтов. Если коротко: <strong>на иишку надейся, а сам не плошай</strong>. Пока так.</p>
+            <div class="meme-container">
+                <img src="meme8.jpg" alt="Я, робот">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Ксюша завершила <span class="highlight">внос 30 проектов в рейтинг Рунета</span>, разобрала все документы по полочкам и помогла Оксане навести бухгалтерский порядок. И между прочим, угощала в понедельник всех тортиком по случаю своего дня рождения (если было вкусно — ставим лайки-огоньки).</p>
+        </div>
+
+        <div class="news-item">
+            <p>Что еще. Катя занималась проектом <span class="highlight">«Коломяжское»</span>: в спокойном темпе двигается по контент-плану, смонтировала клевый ролик, уже закрыла план по публикациям на ресурсах администраций. И что важно — установила связь с новым человеком в администрации Приморского района. Теперь наши новости публикуют почти день в день и на разных площадках. Это важно.</p>
+            <div class="meme-container">
+                <img src="meme9.jpg" alt="Когда дипломат">
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="news-item">
+            <p><strong>Ну и на сладкое:</strong> Сабина на этой неделе нашла вкусную булочную и угощала нас пышками и френч-догами. К концу недели совсем обленились ходить по лестнице и скатились до бомж-пакетов на обед. Катя не курит пять дней. Семен сегодня празднует месяц в нашей команде (Юху!). Все окончательно сменили зимний гардероб на весенне-летний. Решили раскачивать инсту Сабины, чтобы через год не было отбоя от заказчиков.</p>
+            <div class="meme-container">
+                <img src="meme10.jpg" alt="Суши vs дошираки">
+            </div>
+        </div>
+
+        <footer>
+            <p><strong>Гости недели:</strong> Кира, Виктория, Шахноза.</p>
+            <p>Если ваша новость не попала в этот дайджест, напишите Кате. Опубликуем в следующем! Или просто забейте.</p>
+        </footer>
+    </div>
+</body>
+</html>
