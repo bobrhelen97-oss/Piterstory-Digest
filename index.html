@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дайджест недели | Piterstory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #0a0a0a;
+            --gold: #c9a55a;
+            --gold-light: #d4b06a;
+            --white: #ffffff;
+            --gray: #8a8a8a;
+            --gray-light: #e8e8e8;
+        }
+
+        body {
+            background: var(--bg-black);
+            color: var(--white);
+            font-family: 'Montserrat', -apple-system, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo .piterstory {
+            color: var(--white);
+        }
+
+        .logo .team {
+            color: var(--gold);
+        }
+
+        .divider-top {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto 30px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .intro strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .news-item {
+            margin-bottom: 80px;
+            padding: 40px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(201, 165, 90, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold), var(--gold-light));
+            transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .news-item:hover::before {
+            height: 100%;
+        }
+
+        .news-item:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+            box-shadow: -10px 10px 40px rgba(201, 165, 90, 0.15);
+        }
+
+        .news-item p {
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            color: var(--gray-light);
+            line-height: 1.8;
+        }
+
+        .news-item p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .meme-container {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .meme-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid rgba(201, 165, 90, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .meme-container img:hover {
+            border-color: var(--gold);
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(201, 165, 90, 0.3);
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 80px 0;
+            opacity: 0.3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(201, 165, 90, 0.2);
+            margin-top: 80px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: var(--gold);
+        }
+
+        footer p {
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .news-item:nth-child(1) { animation-delay: 0.1s; }
+        .news-item:nth-child(2) { animation-delay: 0.15s; }
+        .news-item:nth-child(3) { animation-delay: 0.2s; }
+        .news-item:nth-child(4) { animation-delay: 0.25s; }
+        .news-item:nth-child(5) { animation-delay: 0.3s; }
+        .news-item:nth-child(6) { animation-delay: 0.35s; }
+        .news-item:nth-child(7) { animation-delay: 0.4s; }
+        .news-item:nth-child(8) { animation-delay: 0.45s; }
+        .news-item:nth-child(9) { animation-delay: 0.5s; }
+        .news-item:nth-child(10) { animation-delay: 0.55s; }
+        .news-item:nth-child(11) { animation-delay: 0.6s; }
+        .news-item:nth-child(12) { animation-delay: 0.65s; }
+        .news-item:nth-child(13) { animation-delay: 0.7s; }
+        .news-item:nth-child(14) { animation-delay: 0.75s; }
+        .news-item:nth-child(15) { animation-delay: 0.8s; }
+        .news-item:nth-child(16) { animation-delay: 0.85s; }
+        .news-item:nth-child(17) { animation-delay: 0.9s; }
+        .news-item:nth-child(18) { animation-delay: 0.95s; }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 50px 25px;
+            }
+            .news-item {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="piterstory">PITERSTORY.</span><span class="team">TEAM</span>
+            </div>
+            <div class="divider-top"></div>
+            <p class="intro">Пролетела еще неделя, и как всегда — <strong>не бесследно</strong>.<br>Читаем, чем отметилось агентство Piterstory Team в этот раз.</p>
+        </header>
+
+        <div class="news-item">
+            <p>Оксана закончила <span class="highlight">квартальный отчет</span> — можем спать спокойно. А еще на этой неделе нам оплатили счет за кепки. Мелочь, а приятно.</p>
+        </div>
+
+        <div class="news-item">
+            <p>Караван подписал NDA, и Ваня доработал дизайн их нового логотипа. Несколько вариантов — один лучше другого. Классика: <strong>мы сделали красиво, теперь человек неделю будет мучиться с выбором.</strong></p>
+            <div class="meme-container">
+                <img src="images/meme2.jpg" alt="Караван">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Еще важная новость от Вани: <span class="highlight">лендинг Piterstory по SMM закончен</span>. Ждем, когда попрут заказы и мы станем жить как короли.</p>
+        </div>
+
+        <div class="news-item">
+            <p>У Семена продолжается эпопея с тендерами. А еще на этой неделе он искал агентство для продвижения личного бренда Сабины. <strong>Искал-искал, но лучше нашего не нашел.</strong> Что и требовалось доказать.</p>
+            <div class="meme-container">
+                <img src="images/meme4.png" alt="Агентство Piterstory">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Сабина пересобрала процесс подготовки КП. Раньше за него отвечали Илья, Лиза и Лена, но, учитывая высокий уровень автоматизации, которого достигли ребята, со следующей недели руль принимает Семен. <strong>Теперь заправлять оркестром будет он — level up!</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Илья тем временем создал <span class="highlight">нереально крутую презентацию агентства про ИИ-направление</span>. В четверг впервые продемонстрировали ее Андрею Горлову (владельцу магазина Corneliani), и Андрей просто-напросто выпал в осадок. <strong>За нами будущее!</strong></p>
+            <div class="meme-container">
+                <img src="images/meme6.png" alt="Piterstory в 2K26">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Кроме того, Илья обработал более 60 контактов Альбины и дал обратную связь по каждому. А еще — Ильюха готовится выходить на международный уровень и продавать трусы в Израиле. <strong>В общем, без трусов не останемся!</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Лизино КП для «Русской турбины» бомбануло — теперь у нас есть новый заказчик. <strong>За это стоит выпить.</strong></p>
+            <div class="meme-container">
+                <img src="images/meme8.gif" alt="Выпить за успех">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Кроме того, Лиза научилась штамповать кейсы на сайт. Как это работает: <span class="highlight">Клод сам собирает инфу на диске, выдает текст, а после проверки — верстает его на сайте</span>. Ни много ни мало, а мечта Сабины исполнилась. От начала работы до финального воплощения — по самым скромным подсчетам 2-3 дня.</p>
+        </div>
+
+        <div class="news-item">
+            <p>Лена закончила интеграцию Клода и Фигмы. Теперь мы получаем на 80% готовое КП за минуту. Именно благодаря этому Лена с Лизой на этой неделе побили рекорд — <strong>за один день собрали целых семь КП!!! Воу-воу-воу!</strong></p>
+            <div class="meme-container">
+                <img src="images/meme10.png" alt="7 КП за день">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Альбина продолжает штурмовать потенциальных клиентов. Результаты есть: бассейны «Атлантика» хотят с нами работать, а «Пятерочка» позвала во второй тур тендера. <strong>Попахивает успехом (и горящей жопой).</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Алевтина вышла на финишную прямую по сдаче сайта La Vue, а также припомнила Вадиму неоплаченный счет за тексты. <strong>Ждем финальные правки и свои кровные.</strong></p>
+            <div class="meme-container">
+                <img src="images/meme12.jpg" alt="Ждем деньги">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Еще Алевтина фиксирует позитивные события: возобновление общения с «Цветочками» и «Семишаговым», а также счастливую находку — 17-летнего креатора ИИ-роликов. Его ролик с обезьянкой за 1300 рублей покорил наши сердца. <strong>Не знаем, куда катится мир, но это весело)</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Катя на этой неделе сняла ролик для «Коломяжского», который уже выложил Комитет по благоустройству и… <span class="highlight">забрали на ВГТРК, чтобы показать по телику!</span> Теперь нас можно смотреть с пультом и попкорном.</p>
+            <div class="meme-container">
+                <img src="images/meme14.gif" alt="Попкорн">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Сабина связалась с «М.Видео», «Детским миром», «Достаевским», «Грузовичковым» и MSI — и начала переговоры по сотрудничеству. <strong>Где больше денег, там мы! И это по-настоящему!!!</strong></p>
+            <div class="meme-container">
+                <img src="images/meme15.gif" alt="За деньгами">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Еще Сабина побывала в офисе «Берегов» и еще раз порадовалась за нас. <strong>Лучше будем продавать трусы в Израиле, чем снова попадем в эту атмосферу.</strong> Выводы сделаны.</p>
+        </div>
+
+        <div class="news-item">
+            <p>Игорь шерстит телефонную книжку, поднимает все связи. Первый рабочий гость нашего офиса — это тоже контакт Игоря.</p>
+        </div>
+
+        <div class="news-item">
+            <p>Ксюша отправила анкету в рейтинг НР2К, нас приняли в ассоциацию агентств ARDA. Ну и настойчиво продолжаем работать с рейтингом Рунета. <strong>Ксюша, ты герой.</strong></p>
+            <div class="meme-container">
+                <img src="images/meme18.jpg" alt="Рекламное агентство">
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="news-item">
+            <p><strong>Рандомные события последних семи дней</strong></p>
+            <p>Отметили месяц в новом офисе.</p>
+            <p>Отметили, что глаз Семена снова как новенький.</p>
+            <p>Альбина посмотрела цветение сакуры. Передает, что цветов мало, а людей много.</p>
+            <p>Оркестр придумал название отделу маркетинга — <span class="highlight">«Glass cockpit»</span>. То ли кабина пилота, то ли стеклянное очко. Ребятам понравилось — и мы счастливы.</p>
+            <p>У Кати появился штатив. Теперь наши видеоролики будут еще стабильнее.</p>
+            <p>Семену сделали фотку на сайт.</p>
+            <p>Сабина снова баловала всех пышками, а в пятницу закатила мак-вечеринку. Диетологи плачут, команда ликует.</p>
+            <p>Тема трусов нас не покидает: планируем повесить красные на люстру над рабочим местом Оксаны, чтобы привлекать еще больше денег на наш расчетный счет.</p>
+        </div>
+
+        <footer>
+            <p><strong>Гости недели:</strong> Шахноза и Андрей Горлов (бывший управляющий магазина одежды бренда Corneliani, который, напомним, выпал в осадок от нашей ИИ-презентации). Андрей, если читаешь — приходи еще.</p>
+            <p style="margin-top: 20px;">P.S. Если ваша новость не попала в этот дайджест — напишите Кате. Опубликуем в следующем. Или просто забейте — не в этом счастье!</p>
+        </footer>
+    </div>
+</body>
+</html>
