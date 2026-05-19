@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дайджест недели | Piterstory</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-black: #000000;
+            --bg-dark: #0a0a0a;
+            --gold: #c9a55a;
+            --gold-light: #d4b06a;
+            --white: #ffffff;
+            --gray: #8a8a8a;
+            --gray-light: #e8e8e8;
+        }
+
+        body {
+            background: var(--bg-black);
+            color: var(--white);
+            font-family: 'Montserrat', -apple-system, sans-serif;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 80px 40px;
+            position: relative;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 100px;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            margin-bottom: 40px;
+            text-transform: uppercase;
+            animation: fadeInDown 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .logo .piterstory {
+            color: var(--white);
+        }
+
+        .logo .team {
+            color: var(--gold);
+        }
+
+        .divider-top {
+            width: 80px;
+            height: 3px;
+            background: var(--gold);
+            margin: 0 auto 30px;
+        }
+
+        .intro {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        .intro strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .news-item {
+            margin-bottom: 80px;
+            padding: 40px;
+            background: var(--bg-dark);
+            border: 1px solid rgba(201, 165, 90, 0.2);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            animation: slideInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: linear-gradient(180deg, var(--gold), var(--gold-light));
+            transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .news-item:hover::before {
+            height: 100%;
+        }
+
+        .news-item:hover {
+            border-color: var(--gold);
+            transform: translateX(10px);
+            box-shadow: -10px 10px 40px rgba(201, 165, 90, 0.15);
+        }
+
+        .news-item p {
+            font-size: 1.05rem;
+            margin-bottom: 25px;
+            color: var(--gray-light);
+            line-height: 1.8;
+        }
+
+        .news-item p:last-of-type {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .meme-container {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .meme-container img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid rgba(201, 165, 90, 0.3);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .meme-container img:hover {
+            border-color: var(--gold);
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(201, 165, 90, 0.3);
+        }
+
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 80px 0;
+            opacity: 0.3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(201, 165, 90, 0.2);
+            margin-top: 80px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        footer strong {
+            color: var(--gold);
+        }
+
+        footer p {
+            margin-top: 20px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .news-item:nth-child(1) { animation-delay: 0.1s; }
+        .news-item:nth-child(2) { animation-delay: 0.15s; }
+        .news-item:nth-child(3) { animation-delay: 0.2s; }
+        .news-item:nth-child(4) { animation-delay: 0.25s; }
+        .news-item:nth-child(5) { animation-delay: 0.3s; }
+        .news-item:nth-child(6) { animation-delay: 0.35s; }
+        .news-item:nth-child(7) { animation-delay: 0.4s; }
+        .news-item:nth-child(8) { animation-delay: 0.45s; }
+        .news-item:nth-child(9) { animation-delay: 0.5s; }
+        .news-item:nth-child(10) { animation-delay: 0.55s; }
+        .news-item:nth-child(11) { animation-delay: 0.6s; }
+        .news-item:nth-child(12) { animation-delay: 0.65s; }
+        .news-item:nth-child(13) { animation-delay: 0.7s; }
+        .news-item:nth-child(14) { animation-delay: 0.75s; }
+        .news-item:nth-child(15) { animation-delay: 0.8s; }
+        .news-item:nth-child(16) { animation-delay: 0.85s; }
+        .news-item:nth-child(17) { animation-delay: 0.9s; }
+        .news-item:nth-child(18) { animation-delay: 0.95s; }
+        .news-item:nth-child(19) { animation-delay: 1s; }
+        .news-item:nth-child(20) { animation-delay: 1.05s; }
+        .news-item:nth-child(21) { animation-delay: 1.1s; }
+
+        @media (max-width: 768px) {
+            .logo {
+                font-size: 1.5rem;
+            }
+            .container {
+                padding: 50px 25px;
+            }
+            .news-item {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="piterstory">PITERSTORY.</span><span class="team">TEAM</span>
+            </div>
+            <div class="divider-top"></div>
+            <p class="intro">Трем укороченным неделям — <strong>один большой дайджест!</strong> Нас долго не было — скорее читайте и утоляйте тоску по новостям, которые реально имеют значение.<br>Итак, поехали.</p>
+        </header>
+
+        <div class="news-item">
+            <p>Семен уже окончательно внедрился в отдел маркетинга и во все рабочие процессы. Теперь сам собирает костяк коммерческих предложений, текст и делает дизайн с помощью Оркестра. <strong>В общем, дирижирует успешно и скоро начнёт собирать миллионы (мы в него верим).</strong></p>
+            <div class="meme-container">
+                <img src="meme1.gif" alt="Дирижирует оркестром">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Лена работает в связке с Семеном: всегда помогает, на подхвате и сама продолжает делать коммерческие.</p>
+            <p><strong>Всего отдел маркетинга за три недели сделал более 30 КП. Всё по-взрослому.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Ваня сделал дизайн для сайта Паллетов. По скромному мнению Игоря, получилось просто: <span class="highlight">«Ракета, бомба, петарда»</span>. Мы солидарны.</p>
+            <div class="meme-container">
+                <img src="meme3.jpg" alt="Поддон из старого журнального столика">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Также Ваня завершил дизайн лендинга Piterstory по SMM, сделал кучу макетов для «Озона» и Х5 Group. А вишенка на торте — во вторник устроил нам презентацию будущего мерча. <strong>Мы теперь хотим собрать тотал-лук из нашей же символики. Получилось круто!</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Алевтина, наконец, размотала Владислава из La Vue: сдала сайт и почти разрулила вопрос с нашими кровными 16 500 за текстики. <strong>Мы девушки не злопамятные, но деньгами сорить не любим.</strong> Тем более ценник дали более чем адекватный.</p>
+            <div class="meme-container">
+                <img src="meme6.jpg" alt="Верни людям деньги">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>«Русская турбина» оплатила счет — и это тадам! <span class="highlight">Наш первый новый клиент!</span></p>
+        </div>
+
+        <div class="news-item">
+            <p>«Цветочки» тоже подписали договор. Теперь ждем денег — и приступаем.</p>
+            <div class="meme-container">
+                <img src="meme8.jpg" alt="Покажите деньги">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>На этой неделе прошли две успешные встречи: с «ДоДо» и ТК «Голливуд». Все в восторге от наших ноу-хау-решений и ждут объемных КП. <strong>Отдел маркетинга, не подкачай!</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Альбина держит фокус на тендерах. На этой неделе решили влезть еще в один блудняк — на этот раз с «Озоном». По нашим ожиданиям, будем продвигать площадку для детей. <span class="highlight">Наконец-то попали в область, где у нас капец какой большой опыт.</span> Держим кулачки и не робеем.</p>
+            <div class="meme-container">
+                <img src="meme10.jpg" alt="Озон - удобно, не удобно, не всегда удобно">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Между прочим, с «Пятерочкой» всё получается. Мы прошли второй этап тендера по продвижению креативной платформы молодежного направления Х5. В среду защищаем наш проект. <strong>Пальцы скрещены.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Дорожники «Коломяжского» решили выпендриться и вместо кепок носить панамки. Альбина за день сделала КП и визуалы — у Марии глаза разбежались, пока думает, что выбрать.</p>
+            <div class="meme-container">
+                <img src="meme12.png" alt="Кто хочет стать миллионером - выбери пол">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Оксана констатировала приход крупной суммы от «Коломяжского» за апрель и май. <strong>Кайф! Живём.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Ещё Les Korse внесли предоплату за каталог — уже приступили к работе.</p>
+            <div class="meme-container">
+                <img src="meme14.jpg" alt="Отпуск до 12.05">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Катя за эти три недели сняла и смонтировала три видео для «Коломяжского». Про фотки молчим, но имеем в виду. В целом работа бурлит.</p>
+            <p>Впереди — два мощных инфоповода: День города и день рождения предприятия. <strong>Идей практически нет. Пожалуйста, если у вас возникнут крутые идеи — присылайте Кате в личку. Очень надо. Она уже нервничает.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>На этой неделе к нам свежими и отдохнувшими вернулись Сабина и Лиза.</p>
+            <div class="meme-container">
+                <img src="meme16.png" alt="Вернулись из отпуска">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Саби первым делом сходила на корабль — обсуждать сотрудничество. Но ВС был не в духе: просто провел экскурсию и был таков.</p>
+            <p>Был и второй заход на корабль. И там ВС только испортил Саби всё настроение и пожелал нам неудачи! <strong>Мы не испугались, но массово скупаем на вб булавки.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Ещё Сабина мастерски провела переговоры с ТК «Голливуд»: <strong>насвистела знатно, но это сработало.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p>Лиза на этой неделе подкрутила агентов по блогу. Теперь они штампуют до пяти статей в день, прям топовых. <strong>Не черт-те что, короче.</strong></p>
+            <div class="meme-container">
+                <img src="meme19.jpg" alt="Когда осознал сколько нужно отдавать статей">
+            </div>
+        </div>
+
+        <div class="news-item">
+            <p>Еще допилили агентов, которые занимаются версткой кейсов на сайте. Теперь править руками почти не приходится. <strong>Агенты сами всё делают.</strong></p>
+        </div>
+
+        <div class="news-item">
+            <p><span class="highlight">Горячая вау-новость:</span> мы сделали простую и наглядную видео-презентацию того, как работает наш Оркестр в реальном времени. Это произвело вау-эффект. Ребята из ТК «Голливуд» сказали, что попали с нами в будущее, и тут же запросили КП. <strong>Если кратко — им интересно всё.</strong></p>
+            <div class="meme-container">
+                <img src="meme21.gif" alt="Роботы в будущем">
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
+
+        <div class="news-item">
+            <p><strong>Ну и на сладенькое:</strong></p>
+            <p>Альбина зарегилась на сайте знакомств — ищет свою любовь.</p>
+            <p>Лиза съездила в Москву.</p>
+            <p>Катя и Лена — в Тихвин.</p>
+            <p>Лиза и Саби — в Турцию. Привезли нам вкусняшек.</p>
+            <p>Все чин-чинарем! Живем, работаем, дирижируем оркестром и передаем недвусмысленный намек «Санта Глории»: <span class="highlight">за деньги — да.</span></p>
+        </div>
+
+        <footer>
+            <p>P.S. Если ваша новость не попала в этот дайджест — напишите Кате. Опубликуем в следующем. Или просто забейте — не в этом счастье!</p>
+        </footer>
+    </div>
+</body>
+</html>
